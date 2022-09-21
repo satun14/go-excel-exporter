@@ -1,0 +1,29 @@
+### Status Request
+GET 0.0.0.0:8090
+
+### Send POST request with json body
+POST 0.0.0.0:8090/excel-export
+Content-Type: application/json
+
+{
+  "db": {
+    "host": "localhost",
+    "port": "3306",
+    "name": "world",
+    "user": "root",
+    "password": "Qwerty789"
+  },
+  "sql": "select * from country",
+  "fields": [
+    {
+      "name": "Name",
+      "type": "string",
+      "label": "Название"
+    },
+    {
+      "name": "Code",
+      "type": "string",
+      "label": "Код"
+    }
+  ]
+}
