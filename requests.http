@@ -1,17 +1,17 @@
 ### Status Request
-GET 0.0.0.0:8090
+GET {{host}}:{{port}}
 
-### Send POST request with json body
-POST 0.0.0.0:8090/excel-export
+### Send POST to export data
+POST {{host}}:{{port}}/excel-export
 Content-Type: application/json
 
 {
   "db": {
-    "host": "localhost",
-    "port": "3306",
-    "name": "world",
-    "user": "root",
-    "password": "Qwerty789"
+    "host": "{{db_host}}",
+    "port": "{{db_port}}",
+    "name": "{{db_name}}",
+    "user": "{{db_user}}",
+    "password": "{{db_password}}"
   },
   "sql": "select * from country",
   "fields": [
@@ -24,6 +24,39 @@ Content-Type: application/json
       "name": "Code",
       "type": "string",
       "label": "Код"
+    }
+  ]
+}
+
+### Send POST to export data with filters
+POST {{host}}:{{port}}/excel-export
+Content-Type: application/json
+
+{
+  "db": {
+    "host": "{{db_host}}",
+    "port": "{{db_port}}",
+    "name": "{{db_name}}",
+    "user": "{{db_user}}",
+    "password": "{{db_password}}"
+  },
+  "sql": "select * from country where Region = 'Southern Europe'",
+  "fields": [
+    {
+      "name": "Name",
+      "type": "string",
+      "label": "Название"
+    },
+    {
+      "name": "Code",
+      "type": "string",
+      "label": "Код"
+    }
+  ],
+  "filters": [
+    {
+      "label": "Регион",
+      "value": "Southern Europe"
     }
   ]
 }
