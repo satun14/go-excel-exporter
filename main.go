@@ -49,6 +49,6 @@ func excelExport(c *gin.Context) {
 
 		c.JSON(http.StatusOK, "Excel Done")
 	} else {
-		c.JSON(http.StatusBadRequest, "Dad request body")
+		c.JSON(http.StatusBadRequest, "Bad request body")
 	}
 }
